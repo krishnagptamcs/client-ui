@@ -1,6 +1,46 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ProductCard, { Product } from "./components/product-card";
+
+// here Product[] is defing here a data type which is describe in product card component
+const products: Product[] = [
+  {
+    id: "1",
+    name: "Margarita Pizza",
+    description: "This is a very tasty pizza",
+    image: "/pizza-main.png",
+    price: 500,
+  },
+  {
+    id: "2",
+    name: "Margarita Pizza",
+    description: "This is a very tasty pizza",
+    image: "/pizza-main.png",
+    price: 500,
+  },
+  {
+    id: "3",
+    name: "Margarita Pizza",
+    description: "This is a very tasty pizza",
+    image: "/pizza-main.png",
+    price: 500,
+  },
+  {
+    id: "4",
+    name: "Margarita Pizza",
+    description: "This is a very tasty pizza",
+    image: "/pizza-main.png",
+    price: 500,
+  },
+  {
+    id: "5",
+    name: "Margarita Pizza",
+    description: "This is a very tasty pizza",
+    image: "/pizza-main.png",
+    price: 500,
+  },
+];
 
 export default function Home() {
   return (
@@ -41,7 +81,11 @@ export default function Home() {
                 Beverages
               </TabsTrigger>
             </TabsList>
-            <TabsContent value="pizza">this is pizza</TabsContent>
+            <TabsContent value="pizza" className="grid grid-cols-4 gap-4">
+              {products.map((product) => (
+                <ProductCard product={product} key={product.id} />
+              ))}
+            </TabsContent>
             <TabsContent value="beverages">this is beverage</TabsContent>
           </Tabs>
         </div>
