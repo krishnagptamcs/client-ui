@@ -45,6 +45,7 @@ const products: Product[] = [
 export default function Home() {
   return (
     <>
+      {/* Hero section */}
       <section className="bg-white">
         <div className="container flex items-center justify-between py-24">
           <div>
@@ -70,10 +71,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Tabs and modal section */}
       <section>
         <div className="container py-12">
           <Tabs defaultValue="pizza">
             <TabsList>
+              {/* Tabs button */}
               <TabsTrigger value="pizza" className="text-md">
                 Pizza
               </TabsTrigger>
@@ -81,6 +84,7 @@ export default function Home() {
                 Beverages
               </TabsTrigger>
             </TabsList>
+            {/* Tabs content , which changes on toggle */}
             <TabsContent value="pizza" className="grid grid-cols-4 gap-4">
               {products.map((product) => (
                 <ProductCard product={product} key={product.id} />

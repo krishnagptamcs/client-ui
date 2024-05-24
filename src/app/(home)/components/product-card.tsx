@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label";
 import ToppingList from "./topping-list";
 import { ShoppingCart } from "lucide-react";
 
+// Defining the type of prop which where passed inside this document
 export type Product = {
   id: string;
   name: string;
@@ -38,12 +39,15 @@ const ProductCard = ({ product }: PropTypes) => {
           <span className="font-bold">₹{product.price}</span>
         </p>
 
+        {/* Butoon to open modal */}
         <Dialog>
+          {/* DialogTrigger --> Button */}
           <DialogTrigger className="bg-orange-200 hover:bg-orange-300 text-orange-500 px-6 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150">
             Choose
           </DialogTrigger>
           <DialogContent className="max-w-3xl p-0">
             <div className="flex">
+              {/* Left Part */}
               <div className="w-1/3 bg-white rounded p-8 flex items-center justify-center">
                 <Image
                   src={"/pizza-main.png"}
@@ -52,11 +56,14 @@ const ProductCard = ({ product }: PropTypes) => {
                   alt={product.name}
                 />
               </div>
+
+              {/* Right Part */}
               <div className="w-2/3 p-8">
                 <h3 className="text-xl font-bold">{product.name}</h3>
                 <p className="mt-1">{product.description}</p>
 
                 <div>
+                  {/* Radio button */}
                   <h4 className="mt-6">Choose the size</h4>
                   <RadioGroup
                     defaultValue="small"
@@ -147,6 +154,7 @@ const ProductCard = ({ product }: PropTypes) => {
                   </RadioGroup>
                 </div>
 
+                {/* Topping list of icon component */}
                 <ToppingList />
 
                 <div className="flex items-center justify-between mt-12">
